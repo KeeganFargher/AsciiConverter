@@ -23,12 +23,12 @@ namespace ConverterLibrary
         {
             Frame frame = new Frame();
 
-            for (int width = 0; width < _image.Width; width+=2)
+            for (int width = 1; width < _image.Width; width+=100)
             {
-                for (int height = 0; height < _image.Height; height+=2)
+                for (int height = 1; height < _image.Height; height+=100)
                 {
-                    frame.X.Add(width);
-                    frame.Y.Add(height);
+                    frame.X.Add(width / 100);
+                    frame.Y.Add(height / 100);
 
                     //Bitmap bitmap = new Bitmap(_image);
                     //frame.Color.Add(bitmap.GetPixel(width, height));

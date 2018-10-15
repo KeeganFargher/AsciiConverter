@@ -8,6 +8,6 @@ namespace ConverterLibrary
         public List<int> X { get; } = new List<int>();
         public List<int> Y { get; } = new List<int>();
 
-        public List<Color> Color { get; } = new List<Color>();
+        public List<string> ascii { get; } = new List<string>();
     }
 }

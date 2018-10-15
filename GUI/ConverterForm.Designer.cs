@@ -39,6 +39,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.ConverterForm_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.ConverterForm_Paint);
             this.ResumeLayout(false);
 
         }
