@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsciiConverter", "AsciiConverter\AsciiConverter.csproj", "{562AEBDF-C201-4A22-8018-75ECC852C8A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{A644F8FD-3B2B-46B2-A015-AB8084AC2422}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConverterLibrary", "ConverterLibrary\ConverterLibrary.csproj", "{7566E0D1-5719-4232-B056-8F50E5F8E9A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{562AEBDF-C201-4A22-8018-75ECC852C8A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{562AEBDF-C201-4A22-8018-75ECC852C8A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{562AEBDF-C201-4A22-8018-75ECC852C8A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{562AEBDF-C201-4A22-8018-75ECC852C8A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A644F8FD-3B2B-46B2-A015-AB8084AC2422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A644F8FD-3B2B-46B2-A015-AB8084AC2422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A644F8FD-3B2B-46B2-A015-AB8084AC2422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A644F8FD-3B2B-46B2-A015-AB8084AC2422}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7566E0D1-5719-4232-B056-8F50E5F8E9A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7566E0D1-5719-4232-B056-8F50E5F8E9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7566E0D1-5719-4232-B056-8F50E5F8E9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7566E0D1-5719-4232-B056-8F50E5F8E9A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
