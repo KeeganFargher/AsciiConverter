@@ -23,24 +23,19 @@ namespace GUI
         private void ConverterForm_Load(object sender, EventArgs e)
         {
             VideoReader reader = new VideoReader();
-            reader.OpenReader("StudentPhoto.png");
+            reader.OpenReader("photo.jpeg");
             _frame = reader.ConvertToAscii();
+
+            int length = (_frame.X.Count * _frame.Y.Count);
+            for (int i = 0; i < length; i++)
+            {
+                textBox1.Text += _frame.ascii[i];
+            }
         }
 
         private void ConverterForm_Paint(object sender, PaintEventArgs e)
         {
-            Brush brushColor = new SolidBrush(Color.BlueViolet);
-            Pen pen = new Pen(brushColor, 1);
 
-            for (int width = 0; width < _frame.X.Count; width++)
-            {
-                for (int height = 0; height < _frame.Y.Count; height++)
-                {
-                    Point p = new Point(_frame.X[width], _frame.Y[height]);
-
-                    e.Graphics.DrawEllipse(pen, p.X, p.Y, 2, 2);
-                }
-            }
         }
     }
 }
