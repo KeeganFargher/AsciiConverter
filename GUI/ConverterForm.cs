@@ -22,20 +22,47 @@ namespace GUI
 
         private void ConverterForm_Load(object sender, EventArgs e)
         {
+
+        }
+        private void ConverterForm_Shown(object sender, EventArgs e)
+        {
             VideoReader reader = new VideoReader();
-            reader.OpenReader("photo.jpeg");
+            reader.OpenReader("dog.jpg");
             _frame = reader.ConvertToAscii();
 
-            int length = (_frame.X.Count * _frame.Y.Count);
-            for (int i = 0; i < length; i++)
+            int xLength = _frame.Location.GetLength(0);
+            int yLength = _frame.Location.GetLength(1);
+            const int spacing = 5;
+
+            for (int y = 0; y < yLength; y += spacing * 2)
             {
-                textBox1.Text += _frame.ascii[i];
+                for (int x = 0; x < xLength; x += spacing)
+                {
+                    textBox1.Text += _frame.Location[x, y];
+                }
+
+                textBox1.Text += Environment.NewLine;
             }
         }
 
         private void ConverterForm_Paint(object sender, PaintEventArgs e)
         {
+            //int xLength = _frame.Location.GetLength(0);
+            //int yLength = _frame.Location.GetLength(1);
 
+            //for (int y = 20; y < yLength; y += 20)
+            //{
+            //    for (int x = 10; x < xLength; x += 10)
+            //    {
+            //        Brush brushColor = new SolidBrush(_frame.Colors[x, y]);
+            //        Pen pen = new Pen(brushColor, 1);
+
+            //        e.Graphics.DrawEllipse(pen, x/10, y/20, 2, 2);
+            //    }
+
+            //}
         }
+
+
     }
 }

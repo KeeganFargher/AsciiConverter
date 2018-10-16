@@ -5,9 +5,8 @@ namespace ConverterLibrary
 {
     public class Frame
     {
-        public List<int> X { get; } = new List<int>();
-        public List<int> Y { get; } = new List<int>();
+        public string[,] Location { get; set; }
 
-        public List<string> ascii { get; } = new List<string>();
+        public Color[,] Colors { get; set; }
     }
 }
