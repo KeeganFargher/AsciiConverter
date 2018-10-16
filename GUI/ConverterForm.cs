@@ -27,7 +27,7 @@ namespace GUI
         private void ConverterForm_Shown(object sender, EventArgs e)
         {
             VideoReader reader = new VideoReader();
-            reader.OpenReader("dog.jpg");
+            reader.OpenReader("photo.jpeg");
             _frame = reader.ConvertToAscii();
 
             int xLength = _frame.Location.GetLength(0);

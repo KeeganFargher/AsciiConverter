@@ -6,7 +6,7 @@ namespace ConverterLibrary
 {
     public class VideoReader
     {
-
+        private string[] _AsciiChars = { "#", "#", "@", "%", "=", "+", "*", ":", "-", ".", "&nbsp;" };
         private Image _image;
 
         public void OpenReader(string fileName)
@@ -35,10 +35,12 @@ namespace ConverterLibrary
                     frame.Colors[x, y] = bitmap.GetPixel(x, y);
 
                     var color = bitmap.GetPixel(x, y);
-                    int sum = (color.R + color.G + color.B);
+                    int sum = (color.R + color.G + color.B) / 3;
+                    Color grayScale = Color.FromArgb(sum, sum, sum);
 
-                    char c = (char) MapValue(0, 756, 48, 122, sum);
-                    frame.Location[x, y] = c.ToString();
+
+                    int index = (grayScale.R * 10)/255;
+                    frame.Location[x, y] = _AsciiChars[index];
                 }
             }
             bitmap.Dispose();
