@@ -4,18 +4,14 @@ using System.Drawing.Imaging;
 
 namespace ConverterLibrary
 {
-    public class VideoReader
+    public class AsciiConverter
     {
-        private string[] _AsciiChars = { "#", "#", "@", "%", "=", "+", "*", ":", "-", ".", "&nbsp;" };
+        private readonly string[] _AsciiChars = { "#", "#", "@", "%", "=", "+", "*", ":", "-", ".", " " };
         private Image _image;
 
-        public void OpenReader(string fileName)
+        public Frame ConvertToAscii(string fileName)
         {
             _image = Image.FromFile(fileName);
-        }
-
-        public Frame ConvertToAscii()
-        {
             var frame = GetFrame();
             
             return frame;
@@ -23,9 +19,11 @@ namespace ConverterLibrary
 
         private Frame GetFrame()
         {
-            Frame frame = new Frame();
-            frame.Location = new string[_image.Width, _image.Height];
-            frame.Colors = new Color[_image.Width, _image.Height];
+            Frame frame = new Frame
+            {
+                Location = new string[_image.Width, _image.Height],
+                Colors = new Color[_image.Width, _image.Height]
+            };
 
             Bitmap bitmap = new Bitmap(_image);
             for (int x = 0; x < _image.Width; x++)
@@ -34,11 +32,12 @@ namespace ConverterLibrary
                 {
                     frame.Colors[x, y] = bitmap.GetPixel(x, y);
 
+                    //  Getting the gray-scale version of our image
                     var color = bitmap.GetPixel(x, y);
                     int sum = (color.R + color.G + color.B) / 3;
                     Color grayScale = Color.FromArgb(sum, sum, sum);
 
-
+                    //  Using a pre-determined array to use as a character based on gray-scale
                     int index = (grayScale.R * 10)/255;
                     frame.Location[x, y] = _AsciiChars[index];
                 }
@@ -46,12 +45,6 @@ namespace ConverterLibrary
             bitmap.Dispose();
 
             return frame;
-        }
-
-        private double MapValue(
-            double fromSource, double toSource, double fromTarget, double toTarget, double value)
-        {
-            return (value - fromSource) / (toSource - fromSource) * (toTarget - fromTarget) + fromTarget;
         }
     }
 }

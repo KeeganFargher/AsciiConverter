@@ -26,13 +26,12 @@ namespace GUI
         }
         private void ConverterForm_Shown(object sender, EventArgs e)
         {
-            VideoReader reader = new VideoReader();
-            reader.OpenReader("photo.jpeg");
-            _frame = reader.ConvertToAscii();
+            AsciiConverter reader = new AsciiConverter();
+            _frame = reader.ConvertToAscii("apple.jpg");
 
             int xLength = _frame.Location.GetLength(0);
             int yLength = _frame.Location.GetLength(1);
-            const int spacing = 5;
+            const int spacing = 10;
 
             for (int y = 0; y < yLength; y += spacing * 2)
             {
