@@ -6,7 +6,7 @@ namespace ConverterLibrary
 {
     public class AsciiConverter
     {
-        private readonly string[] _AsciiChars = { "#", "#", "@", "%", "=", "+", "*", ":", "-", ".", " " };
+        private readonly string[] _asciiChars = { "#", "&", "@", "%", "=", "+", "*", ":", "-", ".", " " };
         private Image _image;
 
         public Frame ConvertToAscii(string fileName)
@@ -39,7 +39,7 @@ namespace ConverterLibrary
 
                     //  Using a pre-determined array to use as a character based on gray-scale
                     int index = (grayScale.R * 10)/255;
-                    frame.Location[x, y] = _AsciiChars[index];
+                    frame.Location[x, y] = _asciiChars[index];
                 }
             }
             bitmap.Dispose();

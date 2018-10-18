@@ -53,7 +53,6 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.ConverterForm_Load);
             this.Shown += new System.EventHandler(this.ConverterForm_Shown);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.ConverterForm_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
 

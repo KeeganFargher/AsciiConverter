@@ -18,6 +18,9 @@ namespace GUI
         public ConverterForm()
         {
             InitializeComponent();
+            AllowDrop = true;
+            DragEnter += ConverterForm_DragEnter;
+            DragDrop += ConverterForm_DragDrop;
         }
 
         private void ConverterForm_Load(object sender, EventArgs e)
@@ -26,8 +29,24 @@ namespace GUI
         }
         private void ConverterForm_Shown(object sender, EventArgs e)
         {
+
+        }
+
+        void ConverterForm_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+        }
+
+        void ConverterForm_DragDrop(object sender, DragEventArgs e)
+        {
+            textBox1.Clear();
+            string[] file = (string[]) e.Data.GetData(DataFormats.FileDrop);
+
             AsciiConverter reader = new AsciiConverter();
-            _frame = reader.ConvertToAscii("apple.jpg");
+            _frame = reader.ConvertToAscii(file[0]);
 
             int xLength = _frame.Location.GetLength(0);
             int yLength = _frame.Location.GetLength(1);
@@ -43,25 +62,6 @@ namespace GUI
                 textBox1.Text += Environment.NewLine;
             }
         }
-
-        private void ConverterForm_Paint(object sender, PaintEventArgs e)
-        {
-            //int xLength = _frame.Location.GetLength(0);
-            //int yLength = _frame.Location.GetLength(1);
-
-            //for (int y = 20; y < yLength; y += 20)
-            //{
-            //    for (int x = 10; x < xLength; x += 10)
-            //    {
-            //        Brush brushColor = new SolidBrush(_frame.Colors[x, y]);
-            //        Pen pen = new Pen(brushColor, 1);
-
-            //        e.Graphics.DrawEllipse(pen, x/10, y/20, 2, 2);
-            //    }
-
-            //}
-        }
-
 
     }
 }
